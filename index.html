@@ -123,14 +123,53 @@ body{background:var(--black);color:var(--cream);font-family:'Outfit',Georgia,san
 @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-100%)}}
 
 /* DETAILS */
-.details-sec{padding:60px 16px;max-width:1100px;margin:0 auto;position:relative;z-index:1}
-.details-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2px;background:rgba(212,168,67,0.08);border:1px solid rgba(212,168,67,0.12)}
-.dcell{background:var(--dark);padding:32px 16px;text-align:center;position:relative;overflow:hidden;transition:background 0.3s}
+.details-sec{padding:48px 0 48px;position:relative;z-index:1}
+.details-sec-inner{max-width:1100px;margin:0 auto;padding:0 16px}
+/* Desktop: classic grid */
+.details-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:rgba(212,168,67,0.08);border:1px solid rgba(212,168,67,0.12)}
+.dcell{background:var(--dark);padding:36px 16px;text-align:center;position:relative;overflow:hidden;transition:background 0.3s}
 .dcell::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--gold);transform:translateX(-50%);transition:width 0.4s cubic-bezier(0.34,1.56,0.64,1)}
 .dcell:hover{background:var(--green1)}.dcell:hover::after{width:60%}
-.di{font-size:26px;margin-bottom:12px;display:block}
+.di{font-size:28px;margin-bottom:12px;display:block}
 .dl{font-size:9px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
 .dv{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--cream);line-height:1.3}
+/* Mobile: horizontal scroll snap cards */
+@media(max-width:768px){
+  .details-sec{padding:0}
+  .details-sec-inner{padding:0}
+  .details-grid{
+    display:flex;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    gap:0;
+    background:none;
+    border:none;
+    scrollbar-width:none;
+    padding:0 20px 0;
+  }
+  .details-grid::-webkit-scrollbar{display:none}
+  .dcell{
+    flex:0 0 72vw;
+    max-width:280px;
+    scroll-snap-align:start;
+    border:1px solid rgba(212,168,67,0.18);
+    margin-right:12px;
+    padding:36px 24px;
+    background:var(--green1);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    min-height:180px;
+  }
+  .dcell:last-child{margin-right:20px}
+  .di{font-size:36px;margin-bottom:14px}
+  .dl{font-size:10px}
+  .dv{font-size:22px}
+  /* scroll hint dot indicators */
+  .scroll-dots{display:flex;gap:6px;justify-content:center;padding:16px 0 32px;position:relative;z-index:1}
+  .scroll-dot{width:6px;height:6px;border-radius:50%;background:rgba(212,168,67,0.25);transition:background 0.3s}
+  .scroll-dot.active{background:var(--gold)}
+}
+@media(min-width:769px){.scroll-dots{display:none}}
 
 /* ABOUT */
 .about-sec{padding:72px 20px;background:var(--green1);position:relative;z-index:1;overflow:hidden}
@@ -228,22 +267,61 @@ footer a:hover{opacity:1}
 
 /* ── MOBILE BREAKPOINTS ── */
 @media(max-width:768px){
-  .about-inner{grid-template-columns:1fr;gap:36px}
+  .about-inner{grid-template-columns:1fr;gap:32px}
   .about-sec{padding:56px 20px}
-  .details-grid{grid-template-columns:repeat(3,1fr)}/* 3 across on tablet */
+  .reviews-grid{grid-template-columns:1fr}
 }
 @media(max-width:480px){
-  .hero{padding:88px 16px 60px}
-  .details-grid{grid-template-columns:1fr 1fr}/* 2 cols on phone */
-  .reviews-grid{grid-template-columns:1fr}
-  .fcards{grid-template-columns:1fr}
+  /* HERO */
+  .hero{padding:80px 16px 56px}
+  .hero-logo{width:clamp(120px,50vw,180px)}
+  .hero-eyebrow{font-size:9px;letter-spacing:0.22em;gap:6px}
+  .hero-eyebrow::before,.hero-eyebrow::after{width:18px}
+
+  /* COUNTDOWN — tighter on small phones */
+  .cd-sep{font-size:18px;margin-top:5px}
+  .countdown-wrap{gap:2px;max-width:320px}
+
+  /* ABOUT */
+  .about-sec{padding:48px 16px}
+  .about-h2{font-size:clamp(26px,8vw,38px)}
   .stat-grid{grid-template-columns:1fr 1fr}
-  .photo-band{height:200px;align-items:flex-end;padding:0 16px 32px}
-  .price-box{padding:32px 20px}
-  .btn-final{font-size:11px;padding:18px 16px;letter-spacing:0.12em}
-  .cta-note{font-size:10px}
-  .cd-sep{font-size:20px;margin-top:4px}
-  .fomo-bar-text{font-size:11px}
+  .snum{font-size:36px}
+
+  /* PHOTO BAND */
+  .photo-band{height:220px;align-items:flex-end;padding:0 20px 28px}
+  .photo-q{font-size:clamp(20px,6vw,28px);max-width:100%}
+
+  /* WHO */
+  .who-sec{padding:56px 16px}
+  .who-h2{font-size:clamp(24px,7vw,34px);margin-bottom:28px}
+  .tags-wrap{gap:8px;margin-bottom:32px}
+  .tag{padding:8px 14px;font-size:10px}
+  .fcards{grid-template-columns:1fr}
+  .fc{padding:28px 20px}
+
+  /* REVIEWS */
+  .reviews-sec{padding:56px 16px}
+  .rcard{padding:20px 16px}
+  .rtext{font-size:15px}
+
+  /* PRICE */
+  .price-sec{padding:60px 16px}
+  .price-box{padding:32px 16px}
+  .price-amt{font-size:clamp(64px,18vw,80px)}
+  .urgency{padding:14px 16px;gap:10px}
+  .urgency-text{font-size:13px}
+
+  /* FINAL CTA */
+  .cta-sec{padding:60px 16px 80px}
+  .cta-h2{font-size:clamp(30px,9vw,48px)}
+  .cta-sub{font-size:14px}
+  .btn-final{font-size:11px;padding:18px 16px;letter-spacing:0.12em;max-width:100%}
+  .cta-note{font-size:10px;padding:0 8px}
+
+  /* FOMO */
+  .fomo-bar-text{font-size:10px;letter-spacing:0.04em}
+  #fomo-bar{gap:8px;padding:9px 12px}
 }
 </style>
 </head>
@@ -315,12 +393,21 @@ footer a:hover{opacity:1}
 <!-- DETAILS -->
 <section style="position:relative;z-index:1">
   <div class="details-sec">
-    <div class="details-grid reveal">
-      <div class="dcell"><span class="di">📍</span><div class="dl">Location</div><div class="dv">Wolf Run<br>Reno, NV</div></div>
-      <div class="dcell"><span class="di">📅</span><div class="dl">Schedule</div><div class="dv">Every Wed<br>May 13 · 5 Wks</div></div>
-      <div class="dcell"><span class="di">⏱</span><div class="dl">Tee Time</div><div class="dv">5:30 PM</div></div>
-      <div class="dcell"><span class="di">🏌️</span><div class="dl">Format</div><div class="dv">9-Hole<br>Scramble</div></div>
-      <div class="dcell"><span class="di">🥂</span><div class="dl">Includes</div><div class="dv">1 Drink +<br>Prizes</div></div>
+    <div class="details-sec-inner">
+      <div class="details-grid reveal">
+        <div class="dcell"><span class="di">📍</span><div class="dl">Location</div><div class="dv">Wolf Run<br>Reno, NV</div></div>
+        <div class="dcell"><span class="di">📅</span><div class="dl">Schedule</div><div class="dv">Every Wed<br>May 13 · 5 Wks</div></div>
+        <div class="dcell"><span class="di">⏱</span><div class="dl">Tee Time</div><div class="dv">5:30 PM</div></div>
+        <div class="dcell"><span class="di">🏌️</span><div class="dl">Format</div><div class="dv">9-Hole<br>Scramble</div></div>
+        <div class="dcell"><span class="di">🥂</span><div class="dl">Includes</div><div class="dv">1 Drink +<br>Prizes</div></div>
+      </div>
+    </div>
+    <div class="scroll-dots">
+      <div class="scroll-dot active"></div>
+      <div class="scroll-dot"></div>
+      <div class="scroll-dot"></div>
+      <div class="scroll-dot"></div>
+      <div class="scroll-dot"></div>
     </div>
   </div>
 </section>
@@ -480,6 +567,21 @@ document.querySelectorAll('a[href*="tripsee"]').forEach(a=>{
     gtag('event','cta_click',{event_category:'conversion',event_label:s});
   });
 });
+
+/* SCROLL DOTS for details cards */
+const grid=document.querySelector('.details-grid');
+const dots=document.querySelectorAll('.scroll-dot');
+if(grid&&dots.length){
+  grid.addEventListener('scroll',()=>{
+    const cells=grid.querySelectorAll('.dcell');
+    let closest=0,minDist=Infinity;
+    cells.forEach((c,i)=>{
+      const dist=Math.abs(c.getBoundingClientRect().left - grid.getBoundingClientRect().left);
+      if(dist<minDist){minDist=dist;closest=i}
+    });
+    dots.forEach((d,i)=>d.classList.toggle('active',i===closest));
+  },{passive:true});
+}
 </script>
 </body>
 </html>
