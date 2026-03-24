@@ -37,6 +37,7 @@ body{background:var(--black);color:var(--cream);font-family:'Outfit',sans-serif;
 
 /* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;z-index:1;background:linear-gradient(180deg,rgba(6,10,6,0.72) 0%,rgba(6,10,6,0.55) 40%,rgba(6,10,6,0.75) 100%),url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=1600&q=85&fm=jpg&fit=crop') center/cover no-repeat}
+.hero-logo{width:clamp(160px,22vw,260px);margin-bottom:24px;opacity:0;animation:sdown 0.7s 0.1s forwards;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.6))}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:500;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:32px;opacity:0;animation:sdown 0.8s 0.2s forwards}
 .hero-eyebrow::before,.hero-eyebrow::after{content:'';width:32px;height:1px;background:var(--gold);opacity:0.6}
 @keyframes sdown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
@@ -205,6 +206,7 @@ footer a:hover{opacity:1}
 
 <!-- HERO -->
 <section class="hero">
+  <img src="logo.png" alt="Links and Drinks Reno" class="hero-logo">
   <p class="hero-eyebrow">Reno-Tahoe's Hump Day Industry Golf Social</p>
   <h1 class="hero-title">
     <span class="title-line">LINKS</span>
