@@ -590,11 +590,23 @@ function tick(){
 tick();setInterval(tick,1000);
 
 /* FOMO BAR — delayed 3s */
-const msgs=['⚡ 3 teams registered in the last hour — spots filling fast',"🔥 May 6 opener — be part of Reno's newest tradition",'👀 14 people viewing this page right now',"⛳ Don't miss the kickoff — Wednesday May 6 at Wolf Run"];
 let mi=0;
+function getFomsMsgs(){
+  const viewers=Math.floor(Math.random()*15)+6; // 6-20, different every rotation
+  return [
+    '⚡ 3 teams registered in the last hour — spots filling fast',
+    "🔥 May 6 opener — be part of Reno's newest tradition",
+    '👀 '+viewers+' people viewing this page right now',
+    "⛳ Don't miss the kickoff — Wednesday May 6 at Wolf Run"
+  ];
+}
 setTimeout(()=>{
   document.getElementById('fomo-bar').classList.add('visible');
-  setInterval(()=>{mi=(mi+1)%msgs.length;document.getElementById('fomo-text').textContent=msgs[mi]},5200);
+  setInterval(()=>{
+    const msgs=getFomsMsgs();
+    mi=(mi+1)%msgs.length;
+    document.getElementById('fomo-text').textContent=msgs[mi];
+  },5200);
 },3000);
 
 
