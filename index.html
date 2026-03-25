@@ -366,6 +366,51 @@ footer a:hover{opacity:1}
   .fomo-bar-text{font-size:10px;letter-spacing:0.04em}
   #fomo-bar{gap:8px;padding:9px 12px}
 }
+
+/* STICKY BOTTOM CTA — mobile only */
+@media(max-width:768px){
+  .sticky-cta{
+    position:fixed;
+    bottom:0;left:0;right:0;
+    z-index:999;
+    display:flex;
+    align-items:stretch;
+    height:60px;
+    box-shadow:0 -4px 24px rgba(0,0,0,0.5);
+  }
+  .sticky-cta-register{
+    flex:1;
+    background:var(--gold);
+    color:var(--black);
+    font-family:'Outfit',sans-serif;
+    font-weight:600;
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    text-decoration:none;
+    display:flex;align-items:center;justify-content:center;
+    gap:6px;
+    -webkit-tap-highlight-color:transparent;
+    transition:background 0.2s;
+  }
+  .sticky-cta-register:active{background:var(--gold2)}
+  .sticky-cta-call{
+    width:72px;
+    background:var(--green3);
+    color:var(--cream);
+    font-size:22px;
+    display:flex;align-items:center;justify-content:center;
+    text-decoration:none;
+    border-left:1px solid rgba(0,0,0,0.2);
+    -webkit-tap-highlight-color:transparent;
+    transition:background 0.2s;
+    flex-shrink:0;
+  }
+  .sticky-cta-call:active{background:var(--accent)}
+  /* Push page content up so sticky bar doesn't cover footer */
+  footer{padding-bottom:76px}
+}
+@media(min-width:769px){.sticky-cta{display:none}}
 </style>
 </head>
 <body>
@@ -694,5 +739,15 @@ if(rGrid&&rDots.length){
   },{passive:true});
 }
 </script>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta">
+  <a href="https://www.tripsee.travel/tripplanner/signup?utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=sticky_cta" target="_blank" rel="noopener" class="sticky-cta-register">
+    ⛳ Register Your Team
+  </a>
+  <a href="tel:+17755551234" class="sticky-cta-call" aria-label="Call us">
+    📞
+  </a>
+</div>
 </body>
 </html>
