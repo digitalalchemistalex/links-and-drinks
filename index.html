@@ -373,42 +373,46 @@ footer a:hover{opacity:1}
     position:fixed;
     bottom:0;left:0;right:0;
     z-index:999;
-    display:flex;
-    align-items:stretch;
-    height:60px;
-    box-shadow:0 -4px 24px rgba(0,0,0,0.5);
+    padding:10px 16px 14px;
+    background:linear-gradient(180deg,transparent 0%,rgba(6,10,6,0.96) 20%);
+    pointer-events:none;
   }
   .sticky-cta-register{
-    flex:1;
+    pointer-events:all;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
     background:var(--gold);
     color:var(--black);
     font-family:'Outfit',sans-serif;
     font-weight:600;
-    font-size:12px;
-    letter-spacing:0.18em;
+    font-size:13px;
+    letter-spacing:0.2em;
     text-transform:uppercase;
     text-decoration:none;
-    display:flex;align-items:center;justify-content:center;
-    gap:6px;
+    padding:16px 24px;
+    position:relative;
+    overflow:hidden;
     -webkit-tap-highlight-color:transparent;
-    transition:background 0.2s;
+    box-shadow:0 4px 32px rgba(212,168,67,0.35);
+    transition:box-shadow 0.2s;
   }
-  .sticky-cta-register:active{background:var(--gold2)}
-  .sticky-cta-call{
-    width:72px;
-    background:var(--green3);
-    color:var(--cream);
-    font-size:22px;
-    display:flex;align-items:center;justify-content:center;
-    text-decoration:none;
-    border-left:1px solid rgba(0,0,0,0.2);
-    -webkit-tap-highlight-color:transparent;
-    transition:background 0.2s;
-    flex-shrink:0;
+  .sticky-cta-register::before{
+    content:'';
+    position:absolute;inset:0;
+    background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.15) 50%,transparent 100%);
+    transform:translateX(-100%);
+    animation:shimmer 2.5s ease infinite;
   }
-  .sticky-cta-call:active{background:var(--accent)}
-  /* Push page content up so sticky bar doesn't cover footer */
-  footer{padding-bottom:76px}
+  @keyframes shimmer{
+    0%{transform:translateX(-100%)}
+    60%,100%{transform:translateX(100%)}
+  }
+  .sticky-cta-register:active{box-shadow:0 2px 12px rgba(212,168,67,0.2)}
+  .sticky-cta-icon{font-size:16px}
+  footer{padding-bottom:80px}
 }
 @media(min-width:769px){.sticky-cta{display:none}}
 </style>
@@ -743,10 +747,8 @@ if(rGrid&&rDots.length){
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-cta">
   <a href="https://www.tripsee.travel/tripplanner/signup?utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=sticky_cta" target="_blank" rel="noopener" class="sticky-cta-register">
-    ⛳ Register Your Team
-  </a>
-  <a href="tel:+17755551234" class="sticky-cta-call" aria-label="Call us">
-    📞
+    <span class="sticky-cta-icon">⛳</span>
+    Register Your Team — $70/Week
   </a>
 </div>
 </body>
