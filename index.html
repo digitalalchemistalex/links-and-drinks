@@ -537,7 +537,7 @@ footer a:hover{opacity:1}
   </div>
 
   <div class="hero-cta-wrap">
-    <a href="https://www.linksanddrinksreno.com/register?utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=hero_cta" class="btn-hero" target="_blank" rel="noopener">Reserve My Spot — It's Only $70</a>
+    <a href="https://www.tripsee.travel/tripplanner/signup?utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=hero_cta" class="btn-hero" target="_blank" rel="noopener">Reserve My Spot — It's Only $70</a>
     <span class="micro-trust">$70/team · 1 drink included · Weekly prizes</span>
 
   </div>
@@ -645,7 +645,7 @@ footer a:hover{opacity:1}
       <div class="price-per">Per Team · Per Week</div>
       <div class="price-inc">1 Drink + Weekly Prizes Included</div>
     </div>
-    <a href="https://www.linksanddrinksreno.com/register?utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_cta" class="btn-hero reveal" target="_blank" rel="noopener" style="text-decoration:none">Yes — Reserve My Team's Spot</a>
+    <a href="https://www.tripsee.travel/tripplanner/signup?utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_cta" class="btn-hero reveal" target="_blank" rel="noopener" style="text-decoration:none">Yes — Reserve My Team's Spot</a>
   </div>
 </section>
 
@@ -653,12 +653,12 @@ footer a:hover{opacity:1}
 <section class="cta-sec">
   <h2 class="cta-h2 reveal">Your Wednesdays<br><em>just leveled up.</em></h2>
   <p class="cta-sub reveal">Five weeks. Nine holes. One drink. Zero excuses.<br>Reno-Tahoe's most fun midweek tradition starts May 6.</p>
-  <a href="https://www.linksanddrinksreno.com/register?utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=final_cta" class="btn-final reveal" target="_blank" rel="noopener">I'm In — Reserve My Wednesday Spot →</a>
+  <a href="https://www.tripsee.travel/tripplanner/signup?utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=final_cta" class="btn-final reveal" target="_blank" rel="noopener">I'm In — Reserve My Wednesday Spot →</a>
   <div class="cta-note reveal">Starting May 6, 2026 · Every Wednesday · Wolf Run Golf Club · Reno, NV · $70/team</div>
 </section>
 
 <footer>
-  <p>&copy; 2026 Links &amp; Drinks at Wolf Run &nbsp;·&nbsp; <a href="https://www.linksanddrinksreno.com/register?utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=footer" target="_blank" rel="noopener">linksanddrinksreno.com</a></p>
+  <p>&copy; 2026 Links &amp; Drinks at Wolf Run &nbsp;·&nbsp; <a href="https://www.tripsee.travel/tripplanner/signup?utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=footer" target="_blank" rel="noopener">linksanddrinksreno.com</a></p>
 </footer>
 
 <!-- GA4 — replace G-XXXXXXX -->
@@ -735,7 +735,7 @@ const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersect
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
 /* CTA TRACKING */
-document.querySelectorAll('a[href*="linksanddrinksreno"]').forEach(a=>{
+document.querySelectorAll('a[href*="tripsee"]').forEach(a=>{
   a.addEventListener('click',()=>{
     const s=a.closest('.hero')?'hero':a.closest('.price-sec')?'price':a.closest('.cta-sec')?'final':'other';
     gtag('event','cta_click',{event_category:'conversion',event_label:s});
@@ -817,7 +817,7 @@ if(rGrid&&rDots.length){
 
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-cta">
-  <a href="https://www.linksanddrinksreno.com/register?utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=sticky_cta" target="_blank" rel="noopener" class="sticky-cta-register">
+  <a href="https://www.tripsee.travel/tripplanner/signup?utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=sticky_cta" target="_blank" rel="noopener" class="sticky-cta-register">
     ⛳ &nbsp; YES — RESERVE MY SPOT
   </a>
 </div>
