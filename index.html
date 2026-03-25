@@ -280,8 +280,34 @@ body{background:var(--black);color:var(--cream);font-family:'Outfit',Georgia,san
 .urgency-icon{font-size:18px;flex-shrink:0;margin-top:1px}
 .urgency-text{font-size:14px;color:var(--cream);line-height:1.5}
 .urgency-text strong{color:var(--fomo)}
-.price-box{position:relative;border:2px solid var(--gold);padding:40px 28px;margin-bottom:32px;overflow:hidden}
+.price-box{position:relative;border:2px solid rgba(212,168,67,0.3);padding:40px 28px;margin-bottom:32px;overflow:hidden}
 .price-box::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,168,67,0.05) 0%,transparent 60%)}
+/* Traveling shine on border using pseudo + clip-path animation */
+.price-box::after{
+  content:'';
+  position:absolute;
+  inset:-2px;
+  border-radius:0;
+  background:conic-gradient(
+    from var(--angle,0deg),
+    transparent 0deg,
+    transparent 60deg,
+    var(--gold2) 80deg,
+    #fff 90deg,
+    var(--gold2) 100deg,
+    transparent 120deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  padding:2px;
+  animation:borderSpin 3s linear infinite;
+}
+@property --angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes borderSpin{to{--angle:360deg}}
 .pcorner{position:absolute;width:18px;height:18px;border-color:var(--gold2);border-style:solid;opacity:0.6}
 .pcorner.tl{top:-2px;left:-2px;border-width:3px 0 0 3px}.pcorner.tr{top:-2px;right:-2px;border-width:3px 3px 0 0}
 .pcorner.bl{bottom:-2px;left:-2px;border-width:0 0 3px 3px}.pcorner.br{bottom:-2px;right:-2px;border-width:0 3px 3px 0}
@@ -388,8 +414,8 @@ footer a:hover{opacity:1}
     color:var(--black);
     font-family:'Outfit',sans-serif;
     font-weight:600;
-    font-size:11px;
-    letter-spacing:0.12em;
+    font-size:10.5px;
+    letter-spacing:0.1em;
     white-space:nowrap;
     text-transform:uppercase;
     text-decoration:none;
@@ -748,7 +774,7 @@ if(rGrid&&rDots.length){
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-cta">
   <a href="https://www.tripsee.travel/tripplanner/signup?utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=sticky_cta" target="_blank" rel="noopener" class="sticky-cta-register">
-    ⛳ &nbsp;Register Now &nbsp;·&nbsp; $70 / Team
+    ⛳ &nbsp; REGISTER NOW — $70/TEAM
   </a>
 </div>
 </body>
