@@ -661,7 +661,7 @@ footer a:hover{opacity:1}
 }
 
 /* HERO WEEK BUTTONS */
-.hero-weeks{width:100%;max-width:480px;margin-top:8px;opacity:0;animation:fin 0.8s 1.4s forwards;text-align:center}
+.hero-weeks{width:100%;max-width:480px;margin-top:8px;opacity:0;animation:fin 0.8s 1.35s forwards;text-align:center}
 .hw-label{font-size:9px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
 .hw-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
 .hw-btn{
@@ -688,7 +688,7 @@ footer a:hover{opacity:1}
 
 /* PRICE WEEK BUTTONS */
 .pw-label{font-size:9px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;text-align:center}
-.pw-grid{display:flex;flex-direction:column;gap:8px}
+.pw-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .pw-btn{
   display:flex;align-items:center;gap:0;
   text-decoration:none;
@@ -703,29 +703,35 @@ footer a:hover{opacity:1}
 .pw-btn:hover::before{transform:translateX(0)}
 .pw-num{
   font-family:'Cormorant Garamond',serif;
-  font-size:28px;font-weight:700;
+  font-size:22px;font-weight:700;
   color:var(--gold);
-  width:56px;min-width:56px;
+  width:44px;min-width:44px;
   display:flex;align-items:center;justify-content:center;
   background:rgba(212,168,67,0.06);
-  padding:16px 0;
+  padding:12px 0;
   border-right:1px solid rgba(212,168,67,0.15);
   position:relative;z-index:1;
 }
 .pw-info{
-  flex:1;padding:12px 16px;
-  display:flex;flex-direction:column;gap:2px;
+  flex:1;padding:8px 12px;
+  display:flex;flex-direction:column;gap:1px;
   position:relative;z-index:1;
 }
-.pw-info strong{font-size:14px;font-weight:600;color:var(--cream);letter-spacing:0.04em}
-.pw-info em{font-size:11px;color:var(--muted);font-style:normal;letter-spacing:0.08em;text-transform:uppercase}
+.pw-info strong{font-size:13px;font-weight:600;color:var(--cream);letter-spacing:0.04em}
+.pw-info em{font-size:10px;color:var(--muted);font-style:normal;letter-spacing:0.08em;text-transform:uppercase}
 .pw-arrow{
-  font-size:16px;color:var(--gold);
-  padding:0 20px;
+  font-size:14px;color:var(--gold);
+  padding:0 12px;
   position:relative;z-index:1;
   transition:transform 0.2s;
 }
-.pw-btn:hover .pw-arrow{transform:translateX(4px)}
+.pw-btn:hover .pw-arrow{transform:translateX(3px)}
+/* Week 5 spans both columns on desktop */
+.pw-btn:last-child{grid-column:1/-1}
+@media(max-width:600px){
+  .pw-grid{grid-template-columns:1fr}
+  .pw-btn:last-child{grid-column:auto}
+}
 
 /* STICKY — rotating weeks on mobile */
 .sticky-week-label{font-size:9px;letter-spacing:0.15em;opacity:0.7;margin-bottom:1px}
@@ -780,12 +786,16 @@ footer a:hover{opacity:1}
     <div class="cd-block"><div class="cd-num" id="cd-s">00</div><div class="cd-label">Sec</div></div>
   </div>
 
-  <div class="hero-cta-wrap">
-    <a href="https://www.tripsee.travel/tripplanner/signup?utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=hero_cta" class="btn-hero" target="_blank" rel="noopener">Count Me In — Register My Team</a>
-    <span class="micro-trust">$70/team · 1 drink included · Weekly prizes</span>
-
+  <div class="hero-weeks">
+    <div class="hw-label">Choose your Wednesday — $70/team</div>
+    <div class="hw-grid">
+      <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week1&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=hero_week1" target="_blank" rel="noopener" class="hw-btn"><span class="hw-wk">Week 1</span><span class="hw-date">May 6</span></a>
+      <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week2&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=hero_week2" target="_blank" rel="noopener" class="hw-btn"><span class="hw-wk">Week 2</span><span class="hw-date">May 13</span></a>
+      <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week3&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=hero_week3" target="_blank" rel="noopener" class="hw-btn"><span class="hw-wk">Week 3</span><span class="hw-date">May 20</span></a>
+      <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week4&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=hero_week4" target="_blank" rel="noopener" class="hw-btn"><span class="hw-wk">Week 4</span><span class="hw-date">May 27</span></a>
+      <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week5&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=hero_week5" target="_blank" rel="noopener" class="hw-btn"><span class="hw-wk">Week 5</span><span class="hw-date">Jun 4</span></a>
+    </div>
   </div>
-
   <div class="scroll-cue">
     <div class="scroll-line"></div>
     <span class="scroll-txt">Scroll</span>
