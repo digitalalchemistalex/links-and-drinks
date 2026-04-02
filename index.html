@@ -488,43 +488,155 @@ footer a:hover{opacity:1}
 @media(min-width:769px){.sticky-cta{display:none}}
 
 /* WEEKS SECTION */
-.weeks-sec{padding:80px 20px;background:var(--dark);position:relative;z-index:1}
-.weeks-inner{max-width:700px;margin:0 auto;text-align:center}
-.weeks-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,44px);font-weight:700;color:var(--cream);margin-bottom:12px;line-height:1.1}
+.weeks-sec{
+  padding:100px 24px;
+  background:var(--dark);
+  position:relative;z-index:1;
+  overflow:hidden;
+}
+.weeks-sec::before{
+  content:'';
+  position:absolute;
+  left:-300px;top:-200px;
+  width:700px;height:700px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(212,168,67,0.05) 0%,transparent 65%);
+  pointer-events:none;
+}
+.weeks-sec::after{
+  content:'';
+  position:absolute;
+  right:-200px;bottom:-100px;
+  width:500px;height:500px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(61,158,106,0.07) 0%,transparent 65%);
+  pointer-events:none;
+}
+.weeks-inner{max-width:1100px;margin:0 auto;text-align:center}
+.weeks-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,52px);font-weight:700;color:var(--cream);margin-bottom:12px;line-height:1.05}
 .weeks-h2 em{color:var(--gold);font-style:italic}
-.weeks-sub{font-size:14px;color:var(--muted);margin-bottom:48px;letter-spacing:0.04em}
-.weeks-grid{display:flex;flex-direction:column;gap:12px}
+.weeks-sub{font-size:14px;color:var(--muted);margin-bottom:64px;letter-spacing:0.05em}
+
+/* DESKTOP: 5-card horizontal layout */
+.weeks-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:2px;
+  background:rgba(212,168,67,0.08);
+  border:1px solid rgba(212,168,67,0.12);
+}
 .week-btn{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:20px 28px;
-  border:1px solid rgba(212,168,67,0.25);
-  background:rgba(255,255,255,0.02);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  padding:40px 20px 32px;
+  background:var(--black);
   text-decoration:none;
   color:var(--cream);
-  transition:all 0.25s;
+  transition:background 0.3s;
   position:relative;
   overflow:hidden;
+  min-height:260px;
+  text-align:center;
 }
 .week-btn::before{
   content:'';
-  position:absolute;inset:0;
-  background:linear-gradient(90deg,rgba(212,168,67,0.06),transparent);
-  transform:translateX(-100%);
-  transition:transform 0.35s cubic-bezier(0.77,0,0.18,1);
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  transform:scaleX(0);
+  transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
 }
-.week-btn:hover{border-color:var(--gold);background:rgba(212,168,67,0.05)}
-.week-btn:hover::before{transform:translateX(0)}
-.week-btn-left{text-align:left}
-.week-num{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:2px}
-.week-date{font-size:11px;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase}
-.week-btn-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.week-badge{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:6px 14px}
-.week-arrow{color:var(--gold);font-size:18px;transition:transform 0.2s}
-.week-btn:hover .week-arrow{transform:translateX(4px)}
-@media(max-width:480px){
-  .week-btn{padding:16px 18px}
-  .week-num{font-size:18px}
-  .week-badge{display:none}
+.week-btn:hover{background:var(--green1)}
+.week-btn:hover::before{transform:scaleX(1)}
+/* Shimmer on hover */
+.week-btn::after{
+  content:'';
+  position:absolute;
+  top:0;left:-80%;
+  width:60%;height:100%;
+  background:linear-gradient(to right,transparent,rgba(255,255,255,0.04),transparent);
+  transform:skewX(-15deg);
+  transition:left 0.5s ease;
+}
+.week-btn:hover::after{left:120%}
+
+.week-num-big{
+  font-family:'Cormorant Garamond',serif;
+  font-size:72px;
+  font-weight:700;
+  color:rgba(212,168,67,0.12);
+  line-height:1;
+  position:absolute;
+  top:16px;right:12px;
+}
+.week-icon{font-size:28px;margin-bottom:16px;display:block}
+.week-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:13px;font-weight:600;
+  letter-spacing:0.25em;text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:10px;
+}
+.week-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;font-weight:700;
+  color:var(--cream);
+  line-height:1.1;
+  margin-bottom:8px;
+}
+.week-date{
+  font-size:11px;color:var(--muted);
+  letter-spacing:0.14em;text-transform:uppercase;
+  margin-bottom:24px;
+}
+.week-cta{
+  display:inline-block;
+  background:var(--gold);
+  color:var(--black);
+  font-size:10px;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;
+  padding:8px 20px;
+  transition:background 0.2s,transform 0.2s;
+}
+.week-btn:hover .week-cta{background:var(--gold2);transform:translateY(-2px)}
+
+/* MOBILE: stays as vertical list */
+@media(max-width:768px){
+  .weeks-sec{padding:60px 0}
+  .weeks-inner{padding:0}
+  .weeks-h2,.weeks-sub,.kicker{padding:0 20px}
+  .weeks-sub{margin-bottom:36px}
+  .weeks-grid{
+    grid-template-columns:1fr;
+    gap:0;
+    background:none;
+    border:none;
+    padding:0 20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .week-btn{
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 20px;
+    min-height:auto;
+    text-align:left;
+    border:1px solid rgba(212,168,67,0.2);
+    background:var(--green1);
+  }
+  .week-btn::before{width:3px;height:100%;top:0;left:0;right:auto;transform:scaleY(0);background:linear-gradient(180deg,transparent,var(--gold),transparent)}
+  .week-btn:hover::before{transform:scaleY(1)}
+  .week-num-big{display:none}
+  .week-icon{display:none}
+  .week-num{font-size:10px;margin-bottom:3px}
+  .week-title{font-size:20px;margin-bottom:2px}
+  .week-date{font-size:10px;margin-bottom:0}
+  .week-cta{padding:8px 16px;font-size:9px}
 }
 </style>
 </head>
@@ -699,58 +811,48 @@ footer a:hover{opacity:1}
     <div class="weeks-grid reveal">
 
       <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week1&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=week1" target="_blank" rel="noopener" class="week-btn">
-        <div class="week-btn-left">
-          <div class="week-num">Week 1</div>
-          <div class="week-date">Wednesday, May 6</div>
-        </div>
-        <div class="week-btn-right">
-          <div class="week-badge">Reserve</div>
-          <div class="week-arrow">→</div>
-        </div>
+        <div class="week-num-big">1</div>
+        <span class="week-icon">⛳</span>
+        <div class="week-num">Week 1</div>
+        <div class="week-title">The Opener</div>
+        <div class="week-date">Wed, May 6</div>
+        <div class="week-cta">Reserve →</div>
       </a>
 
       <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week2&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=week2" target="_blank" rel="noopener" class="week-btn">
-        <div class="week-btn-left">
-          <div class="week-num">Week 2</div>
-          <div class="week-date">Wednesday, May 13</div>
-        </div>
-        <div class="week-btn-right">
-          <div class="week-badge">Reserve</div>
-          <div class="week-arrow">→</div>
-        </div>
+        <div class="week-num-big">2</div>
+        <span class="week-icon">🏌️</span>
+        <div class="week-num">Week 2</div>
+        <div class="week-title">Back 9</div>
+        <div class="week-date">Wed, May 13</div>
+        <div class="week-cta">Reserve →</div>
       </a>
 
       <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week3&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=week3" target="_blank" rel="noopener" class="week-btn">
-        <div class="week-btn-left">
-          <div class="week-num">Week 3</div>
-          <div class="week-date">Wednesday, May 20</div>
-        </div>
-        <div class="week-btn-right">
-          <div class="week-badge">Reserve</div>
-          <div class="week-arrow">→</div>
-        </div>
+        <div class="week-num-big">3</div>
+        <span class="week-icon">🥂</span>
+        <div class="week-num">Week 3</div>
+        <div class="week-title">Halfway There</div>
+        <div class="week-date">Wed, May 20</div>
+        <div class="week-cta">Reserve →</div>
       </a>
 
       <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week4&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=week4" target="_blank" rel="noopener" class="week-btn">
-        <div class="week-btn-left">
-          <div class="week-num">Week 4</div>
-          <div class="week-date">Wednesday, May 27</div>
-        </div>
-        <div class="week-btn-right">
-          <div class="week-badge">Reserve</div>
-          <div class="week-arrow">→</div>
-        </div>
+        <div class="week-num-big">4</div>
+        <span class="week-icon">🏆</span>
+        <div class="week-num">Week 4</div>
+        <div class="week-title">Championship</div>
+        <div class="week-date">Wed, May 27</div>
+        <div class="week-cta">Reserve →</div>
       </a>
 
       <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week5&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=week5" target="_blank" rel="noopener" class="week-btn">
-        <div class="week-btn-left">
-          <div class="week-num">Week 5</div>
-          <div class="week-date">Wednesday, June 4</div>
-        </div>
-        <div class="week-btn-right">
-          <div class="week-badge">Reserve</div>
-          <div class="week-arrow">→</div>
-        </div>
+        <div class="week-num-big">5</div>
+        <span class="week-icon">🎉</span>
+        <div class="week-num">Week 5</div>
+        <div class="week-title">The Finale</div>
+        <div class="week-date">Wed, June 4</div>
+        <div class="week-cta">Reserve →</div>
       </a>
 
     </div>
