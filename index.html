@@ -659,6 +659,77 @@ footer a:hover{opacity:1}
     align-self:center;
   }
 }
+
+/* HERO WEEK BUTTONS */
+.hero-weeks{width:100%;max-width:480px;margin-top:8px;opacity:0;animation:fin 0.8s 1.4s forwards;text-align:center}
+.hw-label{font-size:9px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.hw-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.hw-btn{
+  display:flex;flex-direction:column;align-items:center;
+  padding:10px 6px;
+  border:1px solid rgba(212,168,67,0.3);
+  background:rgba(255,255,255,0.03);
+  text-decoration:none;
+  transition:all 0.2s;
+  position:relative;overflow:hidden;
+  -webkit-tap-highlight-color:transparent;
+}
+.hw-btn::before{content:'';position:absolute;inset:0;background:var(--gold);transform:scaleY(0);transform-origin:bottom;transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1);z-index:0}
+.hw-btn:hover::before{transform:scaleY(1)}
+.hw-btn:hover .hw-wk,.hw-btn:hover .hw-date{color:var(--black);position:relative;z-index:1}
+.hw-wk{font-size:11px;font-weight:600;letter-spacing:0.1em;color:var(--gold);margin-bottom:3px;position:relative;z-index:1;transition:color 0.2s}
+.hw-date{font-size:9px;color:var(--muted);letter-spacing:0.06em;position:relative;z-index:1;transition:color 0.2s}
+@media(max-width:480px){
+  .hw-grid{gap:4px}
+  .hw-btn{padding:8px 4px}
+  .hw-wk{font-size:10px}
+  .hw-date{font-size:8px}
+}
+
+/* PRICE WEEK BUTTONS */
+.pw-label{font-size:9px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;text-align:center}
+.pw-grid{display:flex;flex-direction:column;gap:8px}
+.pw-btn{
+  display:flex;align-items:center;gap:0;
+  text-decoration:none;
+  border:1px solid rgba(212,168,67,0.2);
+  background:rgba(255,255,255,0.02);
+  overflow:hidden;
+  transition:all 0.25s;
+  position:relative;
+}
+.pw-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(212,168,67,0.08),transparent);transform:translateX(-100%);transition:transform 0.35s ease;z-index:0}
+.pw-btn:hover{border-color:var(--gold)}
+.pw-btn:hover::before{transform:translateX(0)}
+.pw-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;font-weight:700;
+  color:var(--gold);
+  width:56px;min-width:56px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(212,168,67,0.06);
+  padding:16px 0;
+  border-right:1px solid rgba(212,168,67,0.15);
+  position:relative;z-index:1;
+}
+.pw-info{
+  flex:1;padding:12px 16px;
+  display:flex;flex-direction:column;gap:2px;
+  position:relative;z-index:1;
+}
+.pw-info strong{font-size:14px;font-weight:600;color:var(--cream);letter-spacing:0.04em}
+.pw-info em{font-size:11px;color:var(--muted);font-style:normal;letter-spacing:0.08em;text-transform:uppercase}
+.pw-arrow{
+  font-size:16px;color:var(--gold);
+  padding:0 20px;
+  position:relative;z-index:1;
+  transition:transform 0.2s;
+}
+.pw-btn:hover .pw-arrow{transform:translateX(4px)}
+
+/* STICKY — rotating weeks on mobile */
+.sticky-week-label{font-size:9px;letter-spacing:0.15em;opacity:0.7;margin-bottom:1px}
+
 </style>
 </head>
 <body>
@@ -818,7 +889,17 @@ footer a:hover{opacity:1}
       <div class="price-per">Per Team · Per Week</div>
       <div class="price-inc">1 Drink + Weekly Prizes Included</div>
     </div>
-    <a href="https://www.tripsee.travel/tripplanner/signup?utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_cta" class="btn-hero reveal" target="_blank" rel="noopener" style="text-decoration:none">Secure My Spot — $70/Week</a>
+    <!-- WEEK BUTTONS — PRICE -->
+    <div class="reveal" style="margin-top:8px">
+      <div class="pw-label">Choose your week to reserve</div>
+      <div class="pw-grid">
+        <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week1&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_week1" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">1</span><span class="pw-info"><strong>May 6</strong><em>The Opener</em></span><span class="pw-arrow">→</span></a>
+        <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week2&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_week2" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">2</span><span class="pw-info"><strong>May 13</strong><em>Back 9</em></span><span class="pw-arrow">→</span></a>
+        <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week3&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_week3" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">3</span><span class="pw-info"><strong>May 20</strong><em>Halfway There</em></span><span class="pw-arrow">→</span></a>
+        <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week4&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_week4" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">4</span><span class="pw-info"><strong>May 27</strong><em>Championship</em></span><span class="pw-arrow">→</span></a>
+        <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week5&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_week5" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">5</span><span class="pw-info"><strong>Jun 4</strong><em>The Finale</em></span><span class="pw-arrow">→</span></a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -884,8 +965,14 @@ footer a:hover{opacity:1}
 <section class="cta-sec">
   <h2 class="cta-h2 reveal">Your Wednesdays<br><em>just leveled up.</em></h2>
   <p class="cta-sub reveal">Five weeks. Nine holes. One drink. Zero excuses.<br>Reno-Tahoe's most fun midweek tradition starts May 6.</p>
-  <a href="https://www.tripsee.travel/tripplanner/signup?utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=final_cta" class="btn-final reveal" target="_blank" rel="noopener">Join the Club — Register Now →</a>
-  <div class="cta-note reveal">Starting May 6, 2026 · Every Wednesday · Wolf Run Golf Club · Reno, NV · $70/team</div>
+  <div class="pw-grid reveal" style="max-width:560px;margin:0 auto 16px">
+    <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week1&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=final_week1" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">1</span><span class="pw-info"><strong>May 6</strong><em>The Opener</em></span><span class="pw-arrow">→</span></a>
+    <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week2&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=final_week2" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">2</span><span class="pw-info"><strong>May 13</strong><em>Back 9</em></span><span class="pw-arrow">→</span></a>
+    <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week3&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=final_week3" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">3</span><span class="pw-info"><strong>May 20</strong><em>Halfway There</em></span><span class="pw-arrow">→</span></a>
+    <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week4&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=final_week4" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">4</span><span class="pw-info"><strong>May 27</strong><em>Championship</em></span><span class="pw-arrow">→</span></a>
+    <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week5&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=final_week5" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">5</span><span class="pw-info"><strong>Jun 4</strong><em>The Finale</em></span><span class="pw-arrow">→</span></a>
+  </div>
+  <div class="cta-note reveal">Wolf Run Golf Club · Every Wednesday · $70/team</div>
 </section>
 
 <footer>
@@ -1030,6 +1117,30 @@ window.addEventListener('load',function(){
   },0);
 });
 
+
+/* STICKY WEEK ROTATION */
+const weekLinks=[
+  {text:'⛳   RESERVE WEEK 1 — MAY 6',url:'https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week1&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=sticky_week'},
+  {text:'⛳   RESERVE WEEK 2 — MAY 13',url:'https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week2&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=sticky_week'},
+  {text:'⛳   RESERVE WEEK 3 — MAY 20',url:'https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week3&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=sticky_week'},
+  {text:'⛳   RESERVE WEEK 4 — MAY 27',url:'https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week4&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=sticky_week'},
+  {text:'⛳   RESERVE WEEK 5 — JUN 4',url:'https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week5&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=sticky_week'},
+];
+let wi=0;
+const stickyLink=document.getElementById('sticky-week-link');
+const stickyText=document.getElementById('sticky-week-text');
+if(stickyLink&&stickyText){
+  setInterval(()=>{
+    wi=(wi+1)%weekLinks.length;
+    stickyText.style.opacity='0';
+    setTimeout(()=>{
+      stickyText.textContent=weekLinks[wi].text;
+      stickyLink.href=weekLinks[wi].url;
+      stickyText.style.opacity='1';
+    },300);
+  },4000);
+}
+
 /* REVIEWS SLIDER DOTS */
 const rGrid=document.getElementById('reviews-grid');
 const rDots=document.querySelectorAll('.r-dot');
@@ -1048,8 +1159,8 @@ if(rGrid&&rDots.length){
 
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-cta">
-  <a href="https://www.tripsee.travel/tripplanner/signup?utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=sticky_cta" target="_blank" rel="noopener" class="sticky-cta-register">
-    ⛳ &nbsp; SECURE MY SPOT — $70/WEEK
+  <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week1&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=sticky_week" target="_blank" rel="noopener" class="sticky-cta-register" id="sticky-week-link">
+    <span id="sticky-week-text">⛳ &nbsp; RESERVE WEEK 1 — MAY 6</span>
   </a>
 </div>
 </body>
