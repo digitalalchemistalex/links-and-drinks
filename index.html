@@ -486,6 +486,46 @@ footer a:hover{opacity:1}
   footer{padding-bottom:80px}
 }
 @media(min-width:769px){.sticky-cta{display:none}}
+
+/* WEEKS SECTION */
+.weeks-sec{padding:80px 20px;background:var(--dark);position:relative;z-index:1}
+.weeks-inner{max-width:700px;margin:0 auto;text-align:center}
+.weeks-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,44px);font-weight:700;color:var(--cream);margin-bottom:12px;line-height:1.1}
+.weeks-h2 em{color:var(--gold);font-style:italic}
+.weeks-sub{font-size:14px;color:var(--muted);margin-bottom:48px;letter-spacing:0.04em}
+.weeks-grid{display:flex;flex-direction:column;gap:12px}
+.week-btn{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 28px;
+  border:1px solid rgba(212,168,67,0.25);
+  background:rgba(255,255,255,0.02);
+  text-decoration:none;
+  color:var(--cream);
+  transition:all 0.25s;
+  position:relative;
+  overflow:hidden;
+}
+.week-btn::before{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(212,168,67,0.06),transparent);
+  transform:translateX(-100%);
+  transition:transform 0.35s cubic-bezier(0.77,0,0.18,1);
+}
+.week-btn:hover{border-color:var(--gold);background:rgba(212,168,67,0.05)}
+.week-btn:hover::before{transform:translateX(0)}
+.week-btn-left{text-align:left}
+.week-num{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:2px}
+.week-date{font-size:11px;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase}
+.week-btn-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.week-badge{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--black);background:var(--gold);padding:6px 14px}
+.week-arrow{color:var(--gold);font-size:18px;transition:transform 0.2s}
+.week-btn:hover .week-arrow{transform:translateX(4px)}
+@media(max-width:480px){
+  .week-btn{padding:16px 18px}
+  .week-num{font-size:18px}
+  .week-badge{display:none}
+}
 </style>
 </head>
 <body>
@@ -646,6 +686,74 @@ footer a:hover{opacity:1}
       <div class="price-inc">1 Drink + Weekly Prizes Included</div>
     </div>
     <a href="https://www.tripsee.travel/tripplanner/signup?utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_cta" class="btn-hero reveal" target="_blank" rel="noopener" style="text-decoration:none">Secure My Spot — $70/Week</a>
+  </div>
+</section>
+
+
+<!-- WEEKS / BOOKING -->
+<section class="weeks-sec">
+  <div class="weeks-inner">
+    <div class="kicker reveal">Pick Your Wednesday</div>
+    <h2 class="weeks-h2 reveal">Reserve Your <em>Week</em></h2>
+    <p class="weeks-sub reveal">Each week is booked separately. Grab one, a few, or all five.</p>
+    <div class="weeks-grid reveal">
+
+      <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week1&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=week1" target="_blank" rel="noopener" class="week-btn">
+        <div class="week-btn-left">
+          <div class="week-num">Week 1</div>
+          <div class="week-date">Wednesday, May 6</div>
+        </div>
+        <div class="week-btn-right">
+          <div class="week-badge">Reserve</div>
+          <div class="week-arrow">→</div>
+        </div>
+      </a>
+
+      <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week2&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=week2" target="_blank" rel="noopener" class="week-btn">
+        <div class="week-btn-left">
+          <div class="week-num">Week 2</div>
+          <div class="week-date">Wednesday, May 13</div>
+        </div>
+        <div class="week-btn-right">
+          <div class="week-badge">Reserve</div>
+          <div class="week-arrow">→</div>
+        </div>
+      </a>
+
+      <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week3&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=week3" target="_blank" rel="noopener" class="week-btn">
+        <div class="week-btn-left">
+          <div class="week-num">Week 3</div>
+          <div class="week-date">Wednesday, May 20</div>
+        </div>
+        <div class="week-btn-right">
+          <div class="week-badge">Reserve</div>
+          <div class="week-arrow">→</div>
+        </div>
+      </a>
+
+      <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week4&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=week4" target="_blank" rel="noopener" class="week-btn">
+        <div class="week-btn-left">
+          <div class="week-num">Week 4</div>
+          <div class="week-date">Wednesday, May 27</div>
+        </div>
+        <div class="week-btn-right">
+          <div class="week-badge">Reserve</div>
+          <div class="week-arrow">→</div>
+        </div>
+      </a>
+
+      <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week5&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=week5" target="_blank" rel="noopener" class="week-btn">
+        <div class="week-btn-left">
+          <div class="week-num">Week 5</div>
+          <div class="week-date">Wednesday, June 4</div>
+        </div>
+        <div class="week-btn-right">
+          <div class="week-badge">Reserve</div>
+          <div class="week-arrow">→</div>
+        </div>
+      </a>
+
+    </div>
   </div>
 </section>
 
