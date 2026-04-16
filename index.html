@@ -634,49 +634,72 @@ footer a:hover{opacity:1}
 
 /* PRICE WEEK BUTTONS */
 .pw-label{font-size:9px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;text-align:center}
-.pw-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pw-label{font-size:10px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;text-align:center}
+.pw-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .pw-btn{
   display:flex;align-items:center;gap:0;
   text-decoration:none;
-  border:1px solid rgba(212,168,67,0.2);
-  background:rgba(255,255,255,0.02);
+  border:2px solid rgba(212,168,67,0.5);
+  background:rgba(212,168,67,0.06);
   overflow:hidden;
   transition:all 0.25s;
   position:relative;
+  -webkit-tap-highlight-color:transparent;
 }
-.pw-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(212,168,67,0.08),transparent);transform:translateX(-100%);transition:transform 0.35s ease;z-index:0}
-.pw-btn:hover{border-color:var(--gold)}
+.pw-btn::before{
+  content:'';position:absolute;inset:0;
+  background:var(--gold);
+  transform:translateX(-101%);
+  transition:transform 0.35s cubic-bezier(0.77,0,0.18,1);
+  z-index:0;
+}
+.pw-btn:hover{border-color:var(--gold);box-shadow:0 4px 20px rgba(212,168,67,0.2)}
 .pw-btn:hover::before{transform:translateX(0)}
+.pw-btn:hover .pw-num,
+.pw-btn:hover .pw-info strong,
+.pw-btn:hover .pw-reserve{color:var(--black)}
 .pw-num{
   font-family:'Cormorant Garamond',serif;
-  font-size:22px;font-weight:700;
+  font-size:28px;font-weight:700;
   color:var(--gold);
-  width:44px;min-width:44px;
+  width:52px;min-width:52px;
   display:flex;align-items:center;justify-content:center;
-  background:rgba(212,168,67,0.06);
-  padding:12px 0;
-  border-right:1px solid rgba(212,168,67,0.15);
+  background:rgba(212,168,67,0.1);
+  padding:18px 0;
+  border-right:1px solid rgba(212,168,67,0.2);
   position:relative;z-index:1;
+  transition:color 0.25s;
 }
 .pw-info{
-  flex:1;padding:8px 12px;
-  display:flex;flex-direction:column;gap:1px;
+  flex:1;padding:14px 16px;
+  display:flex;flex-direction:column;gap:2px;
   position:relative;z-index:1;
 }
-.pw-info strong{font-size:13px;font-weight:600;color:var(--cream);letter-spacing:0.04em}
-.pw-info em{font-size:10px;color:var(--muted);font-style:normal;letter-spacing:0.08em;text-transform:uppercase}
-.pw-arrow{
-  font-size:14px;color:var(--gold);
-  padding:0 12px;
-  position:relative;z-index:1;
-  transition:transform 0.2s;
+.pw-info strong{
+  font-size:15px;font-weight:600;
+  color:var(--cream);letter-spacing:0.04em;
+  transition:color 0.25s;
 }
-.pw-btn:hover .pw-arrow{transform:translateX(3px)}
-/* Week 5 spans both columns on desktop */
+.pw-reserve{
+  font-size:10px;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);
+  position:relative;z-index:1;
+  padding:0 16px;
+  flex-shrink:0;
+  transition:color 0.25s;
+  display:flex;align-items:center;gap:4px;
+}
+.pw-reserve::after{content:'→';transition:transform 0.2s}
+.pw-btn:hover .pw-reserve::after{transform:translateX(3px)}
+/* Week 5 spans both columns */
 .pw-btn:last-child{grid-column:1/-1}
 @media(max-width:600px){
   .pw-grid{grid-template-columns:1fr}
   .pw-btn:last-child{grid-column:auto}
+  .pw-num{width:44px;font-size:22px}
+  .pw-info{padding:12px}
+  .pw-info strong{font-size:14px}
 }
 
 /* STICKY — rotating weeks on mobile */
@@ -849,11 +872,11 @@ footer a:hover{opacity:1}
     <div class="reveal" style="margin-top:8px">
       <div class="pw-label">Choose your week to reserve</div>
       <div class="pw-grid">
-        <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week1&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_week1" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">1</span><span class="pw-info"><strong>May 13</strong></span><span class="pw-arrow">→</span></a>
-        <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week2&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_week2" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">2</span><span class="pw-info"><strong>May 20</strong></span><span class="pw-arrow">→</span></a>
-        <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week3&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_week3" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">3</span><span class="pw-info"><strong>May 27</strong></span><span class="pw-arrow">→</span></a>
-        <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week4&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_week4" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">4</span><span class="pw-info"><strong>Jun 3</strong></span><span class="pw-arrow">→</span></a>
-        <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week5&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_week5" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">5</span><span class="pw-info"><strong>Jun 10</strong></span><span class="pw-arrow">→</span></a>
+        <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week1&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_week1" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">1</span><span class="pw-info"><strong>May 13</strong></span><span class="pw-reserve">Reserve</span></a>
+        <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week2&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_week2" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">2</span><span class="pw-info"><strong>May 20</strong></span><span class="pw-reserve">Reserve</span></a>
+        <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week3&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_week3" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">3</span><span class="pw-info"><strong>May 27</strong></span><span class="pw-reserve">Reserve</span></a>
+        <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week4&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_week4" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">4</span><span class="pw-info"><strong>Jun 3</strong></span><span class="pw-reserve">Reserve</span></a>
+        <a href="https://www.tripsee.travel/merchant/book/index.html?ref=2026LinksandDrinks-Week5&utm_source=landingpage&utm_medium=referral&utm_campaign=links_drinks_2026&utm_content=price_week5" target="_blank" rel="noopener" class="pw-btn"><span class="pw-num">5</span><span class="pw-info"><strong>Jun 10</strong></span><span class="pw-reserve">Reserve</span></a>
       </div>
     </div>
   </div>
