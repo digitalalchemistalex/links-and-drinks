@@ -705,6 +705,55 @@ footer a:hover{opacity:1}
 /* STICKY — rotating weeks on mobile */
 .sticky-week-label{font-size:9px;letter-spacing:0.15em;opacity:0.7;margin-bottom:1px}
 
+
+/* PRESENTED BY SPONSORS */
+.sponsors-sec{
+  padding:48px 24px;
+  background:var(--green1);
+  border-top:1px solid rgba(212,168,67,0.1);
+  border-bottom:1px solid rgba(212,168,67,0.1);
+  position:relative;z-index:1;
+  text-align:center;
+}
+.sponsors-label{
+  font-size:9px;font-weight:600;
+  letter-spacing:0.35em;text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:28px;
+  display:flex;align-items:center;justify-content:center;gap:16px;
+}
+.sponsors-label::before,.sponsors-label::after{
+  content:'';width:48px;height:1px;
+  background:rgba(212,168,67,0.25);
+}
+.sponsors-logos{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:48px;
+  flex-wrap:wrap;
+}
+.sponsor-item{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  opacity:0.85;
+  transition:opacity 0.25s;
+  text-decoration:none;
+}
+.sponsor-item:hover{opacity:1}
+.sponsor-item img{
+  height:56px;
+  width:auto;
+  max-width:180px;
+  object-fit:contain;
+  filter:brightness(1) saturate(0.9);
+  transition:filter 0.25s;
+}
+.sponsor-item:hover img{filter:brightness(1.05) saturate(1)}
+@media(max-width:480px){
+  .sponsors-logos{gap:32px}
+  .sponsor-item img{height:44px;max-width:140px}
+}
+
 </style>
 </head>
 <body>
@@ -820,6 +869,20 @@ footer a:hover{opacity:1}
 <div class="photo-band">
   <div class="photo-q">"<em>Team Drive.</em><br>Individual Glory."</div>
 </div>
+
+
+<!-- PRESENTED BY -->
+<section class="sponsors-sec reveal">
+  <div class="sponsors-label">Presented By</div>
+  <div class="sponsors-logos">
+    <a href="https://www.golfthehighsierra.com" target="_blank" rel="noopener" class="sponsor-item">
+      <img src="gths-logo.png" alt="Golf The High Sierra">
+    </a>
+    <a href="#" class="sponsor-item">
+      <img src="duncan-logo.png" alt="Duncan Golf Management">
+    </a>
+  </div>
+</section>
 
 <!-- REVIEWS -->
 <section class="reviews-sec">
