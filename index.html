@@ -708,50 +708,54 @@ footer a:hover{opacity:1}
 
 /* PRESENTED BY SPONSORS */
 .sponsors-sec{
-  padding:48px 24px;
-  background:var(--green1);
-  border-top:1px solid rgba(212,168,67,0.1);
-  border-bottom:1px solid rgba(212,168,67,0.1);
+  padding:56px 24px;
+  background:rgba(255,255,255,0.06);
+  border-top:1px solid rgba(212,168,67,0.12);
+  border-bottom:1px solid rgba(212,168,67,0.12);
   position:relative;z-index:1;
   text-align:center;
 }
 .sponsors-label{
   font-size:9px;font-weight:600;
   letter-spacing:0.35em;text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:28px;
+  color:var(--gold);
+  margin-bottom:36px;
   display:flex;align-items:center;justify-content:center;gap:16px;
 }
 .sponsors-label::before,.sponsors-label::after{
-  content:'';width:48px;height:1px;
-  background:rgba(212,168,67,0.25);
+  content:'';width:60px;height:1px;
+  background:rgba(212,168,67,0.35);
 }
 .sponsors-logos{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:48px;
+  gap:72px;
   flex-wrap:wrap;
 }
 .sponsor-item{
   display:flex;flex-direction:column;align-items:center;gap:8px;
-  opacity:0.85;
-  transition:opacity 0.25s;
+  transition:transform 0.25s,opacity 0.25s;
   text-decoration:none;
+  opacity:1;
 }
-.sponsor-item:hover{opacity:1}
+.sponsor-item:hover{transform:translateY(-3px);opacity:0.9}
 .sponsor-item img{
-  height:56px;
+  height:80px;
   width:auto;
-  max-width:180px;
+  max-width:240px;
   object-fit:contain;
-  filter:brightness(1) saturate(0.9);
+  /* Brighten logos so they pop on dark background */
+  filter:brightness(1.15) drop-shadow(0 2px 12px rgba(0,0,0,0.5));
   transition:filter 0.25s;
+  background:rgba(255,255,255,0.92);
+  padding:10px 18px;
+  border-radius:4px;
 }
-.sponsor-item:hover img{filter:brightness(1.05) saturate(1)}
+.sponsor-item:hover img{filter:brightness(1.2) drop-shadow(0 4px 16px rgba(0,0,0,0.4))}
 @media(max-width:480px){
   .sponsors-logos{gap:32px}
-  .sponsor-item img{height:44px;max-width:140px}
+  .sponsor-item img{height:60px;max-width:180px;padding:8px 14px}
 }
 
 </style>
