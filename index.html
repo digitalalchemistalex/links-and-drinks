@@ -998,7 +998,7 @@ if(!isMobile){
 
 /* COUNTDOWN */
 function tick(){
-  const tgt=new Date('2026-05-13T17:30:00-07:00'),now=new Date();
+  const tgt=new Date('2026-06-03T17:30:00-07:00'),now=new Date();
   let d=Math.max(0,tgt-now);
   const days=Math.floor(d/86400000),hrs=Math.floor((d%86400000)/3600000),mins=Math.floor((d%3600000)/60000),secs=Math.floor((d%60000)/1000);
   [['cd-d',days],['cd-h',hrs],['cd-m',mins],['cd-s',secs]].forEach(([id,v])=>{
